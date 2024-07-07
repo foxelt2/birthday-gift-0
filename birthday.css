@@ -1,0 +1,52 @@
+@keyframes bday-text 
+{
+   0%   {color:#ff0000; left:0px; top:0px}
+   25%  {color:#c35c4a; left:20px;top:0px}
+   50%  {color:#ffef90; left:50px;top:50px}
+   65%  {color:#efef00; left:65px;top:65px}
+   75%  {color:#006eff; left:50px;top:50px}
+   85%  {color:#0000ff; left:20px;top:0px}
+   100% {color:#ff0090; left:0px;top:0px}
+}
+body
+{
+    padding: 50px 20px 50px 20px;
+    margin: 40px;
+    background-color: #180438; 
+
+}
+div
+{
+    height:auto;
+    width:auto;
+    padding: 50px 20px 50px 20px;
+    margin: 40px;
+    background-color: #6200ff; 
+}
+#layer{
+    height:auto;
+    width:auto;
+    padding: 20px;
+    margin: 20px;
+    background-color: #ffef90;
+    
+}
+h1
+{   
+    height:100px;
+    text-align: center;
+    position: relative;
+    animation: bday-text 7s linear -1ms 50;
+    text-shadow:2px #c35c4a,2px 1px #efef00;
+}
+p
+{
+    text-align: center;
+    color: rgb(19, 78, 150);
+}
+p:hover
+{
+    text-align: center;
+     color: rgb(19, 78, 150);
+    text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+}
