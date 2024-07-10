@@ -39,14 +39,19 @@ h1
     animation: bday-text 7s linear -1ms 50;
     text-shadow:2px #c35c4a,2px 1px #efef00;
 }
+form
+{
+    text-align: center;
+    border-color: #c35c4a;
+}
 p
 {
     text-align: center;
     color: rgb(19, 78, 150);
 }
-p:hover
+#submit:hover,#image:hover
 {
     text-align: center;
-     color: rgb(19, 78, 150);
+     color: rgb(150, 80, 9);
     text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
 }
