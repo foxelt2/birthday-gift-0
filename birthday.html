@@ -4,27 +4,32 @@
         <title> New Start Project</title>
         <meta name="viewport" content="width=device-width, initial scale=1.0">
         <meta name="author" content="Musah Inusah Saaka">
-        <meta http-equiv="refresh" content="90">
+        <meta http-equiv="refresh" content="200">
         <link rel="icon" href="icon.png">
         <link rel="stylesheet" href="birthday.css">
-        <link rel="" href="birthday.js">
+     
     </head>
     <body>
-        <script src="birthday.js"></script>
+       
+     
         <div id="bodymark">
         <article id="layer">
-        <h1 id="bday-text"> Happy Birthday</h1>
-        <img src="">
-        <p> Wishing you the best of all thngs</p>
+        <h1 id="bday-text"> Welcome </h1>
+        <img src="" id ="pic">
+        
+        <p id="pText">This is a web application that gives you the ability to create a birthday message with animation effects  </p>
         <form>
-            <p>Select image</p>
+            <h2 id="eng">Select image</h2>
+            <p id="counter">0</p>
             <br>
-            <input id="image" type="file" name="img">
-            <br>
-            <input id="submit" type="submit">
+            <input id="image" type="file"  accept="image/*">
         </form>
+        <video margin="auto" width='100%' controls autoplay id="konosuba">
+            <source src="background explosion.mp4" type="video/mp4">
         </article> 
-      
+        <script src="birthday.js"> </script>
+        
+        </video>
         </div>
     </body>
-</html>
+</html> 
