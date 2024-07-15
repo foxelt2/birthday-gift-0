@@ -9,28 +9,70 @@ document.addEventListener('DOMContentLoaded', function () {
             };
             reader.readAsDataURL(file);
 
-            // Make the background black and hide all elements except the video
+            // Turn the screen black and start the countdown
             document.body.style.backgroundColor = 'black';
             document.getElementById('bodymark').style.display = 'none';
+            const bdayText = document.getElementById('bday-text');
+            bdayText.style.display = 'block';
+            bdayText.innerHTML = '3';
 
-            const video = document.getElementById('konosuba');
-            video.style.display = 'block';
-            video.play();
+            let count = 3;
+            const countdown = setInterval(function () {
+                count--;
+                if (count > 0) {
+                    bdayText.innerHTML = count;
+                } else {
+                    clearInterval(countdown);
+                    bdayText.innerHTML = 'Loading...';
 
-            // After the video plays for 7 seconds, revert to normal background and show the birthday message and picture
-            setTimeout(function () {
-                video.style.display = 'none';
-                document.body.style.backgroundColor = '#180438'; // Normal background color
-                document.getElementById('bodymark').style.display = 'block';
-                document.getElementById('bday-text').innerHTML = `Happy Birthday`;
-                document.getElementById('pText').innerHTML = `Wishing you longevity, happiness, and all the best health.`;
-                document.getElementById('pic').style.display = 'block';
-                document.getElementById('bday-text').style.display = 'block';
-                document.getElementById('pText').style.display = 'block';
-                document.getElementById('image').style.display = 'none';
-                document.getElementById('counter').style.display = 'none';
-                document.getElementById('eng').style.display = 'none';
-            }, 7000); // 7 seconds
+                    // Show the video
+                    const video = document.getElementById('konosuba');
+                    video.style.display = 'block';
+                    video.play();
+
+                    video.addEventListener('ended', function () {
+                        video.style.display = 'none';
+
+                        // Show the birthday message with animation for 2 seconds
+                        bdayText.innerHTML = 'Happy Birthday';
+                        bdayText.style.animation = 'bday-text 2s linear';
+
+                        setTimeout(function () {
+                            bdayText.style.animation = 'bday-text 7s linear infinite';
+                            document.body.style.backgroundColor = '#180438'; // Normal background color
+                            document.getElementById('bodymark').style.display = 'block';
+                            document.getElementById('pic').style.display = 'block';
+                            document.getElementById('pText').innerHTML = 'Wishing you longevity, happiness, and all the best health.';
+                            document.getElementById('pText').style.display = 'block';
+                            document.getElementById('image').style.display = 'none';
+                            document.getElementById('counter').style.display = 'none';
+                            document.getElementById('eng').style.display = 'none';
+                        }, 2000); // 2 seconds
+                    });
+
+                    // If video doesn't end after 7 seconds, enforce the change
+                    setTimeout(function () {
+                        if (!video.paused) {
+                            video.pause();
+                            video.style.display = 'none';
+                            bdayText.innerHTML = 'Happy Birthday';
+                            bdayText.style.animation = 'bday-text 2s linear';
+
+                            setTimeout(function () {
+                                bdayText.style.animation = 'bday-text 7s linear infinite';
+                                document.body.style.backgroundColor = '#180438'; // Normal background color
+                                document.getElementById('bodymark').style.display = 'block';
+                                document.getElementById('pic').style.display = 'block';
+                                document.getElementById('pText').innerHTML = 'Wishing you longevity, happiness, and all the best health.';
+                                document.getElementById('pText').style.display = 'block';
+                                document.getElementById('image').style.display = 'none';
+                                document.getElementById('counter').style.display = 'none';
+                                document.getElementById('eng').style.display = 'none';
+                            }, 2000); // 2 seconds
+                        }
+                    }, 7000); // 7 seconds
+                }
+            }, 1000); // 1 second interval
         }
     });
 });
