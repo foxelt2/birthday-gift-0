@@ -1,3 +1,4 @@
+
 document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('image').addEventListener('change', function (event) {
         const file = event.target.files[0];
@@ -32,14 +33,22 @@ document.addEventListener('DOMContentLoaded', function () {
 
                     video.addEventListener('ended', function () {
                         video.style.display = 'none';
+                        document.body.style.backgroundColor = '#180438'; // Normal background color
+                        document.getElementById('bodymark').style.display = 'block';
+                        document.getElementById('pic').style.display = 'block';
+                        document.getElementById('pText').innerHTML = 'Wishing you longevity, happiness, and all the best health.';
+                        document.getElementById('pText').style.display = 'block';
+                        document.getElementById('image').style.display = 'none';
+                        document.getElementById('counter').style.display = 'none';
+                        document.getElementById('eng').style.display = 'none';
 
                         // Show the birthday message with animation for 2 seconds
                         bdayText.innerHTML = 'Happy Birthday';
                         bdayText.style.animation = 'bday-text 2s linear';
 
                         setTimeout(function () {
+                            // Reset animation and display elements
                             bdayText.style.animation = 'bday-text 7s linear infinite';
-                            document.body.style.backgroundColor = '#180438'; // Normal background color
                             document.getElementById('bodymark').style.display = 'block';
                             document.getElementById('pic').style.display = 'block';
                             document.getElementById('pText').innerHTML = 'Wishing you longevity, happiness, and all the best health.';
@@ -49,28 +58,6 @@ document.addEventListener('DOMContentLoaded', function () {
                             document.getElementById('eng').style.display = 'none';
                         }, 2000); // 2 seconds
                     });
-
-                    // If video doesn't end after 7 seconds, enforce the change
-                    setTimeout(function () {
-                        if (!video.paused) {
-                            video.pause();
-                            video.style.display = 'none';
-                            bdayText.innerHTML = 'Happy Birthday';
-                            bdayText.style.animation = 'bday-text 2s linear';
-
-                            setTimeout(function () {
-                                bdayText.style.animation = 'bday-text 7s linear infinite';
-                                document.body.style.backgroundColor = '#180438'; // Normal background color
-                                document.getElementById('bodymark').style.display = 'block';
-                                document.getElementById('pic').style.display = 'block';
-                                document.getElementById('pText').innerHTML = 'Wishing you longevity, happiness, and all the best health.';
-                                document.getElementById('pText').style.display = 'block';
-                                document.getElementById('image').style.display = 'none';
-                                document.getElementById('counter').style.display = 'none';
-                                document.getElementById('eng').style.display = 'none';
-                            }, 2000); // 2 seconds
-                        }
-                    }, 7000); // 7 seconds
                 }
             }, 1000); // 1 second interval
         }
